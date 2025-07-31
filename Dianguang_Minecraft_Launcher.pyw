@@ -21,7 +21,7 @@ def startgame():
     print('123abc')
 # [nopoint]千万别点的调用函数
 def nopoint1():
-    os.system('python nopoint.py')
+    print('没做好')
 
 # 主程序
 # 设置任务名
