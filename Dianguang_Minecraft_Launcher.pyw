@@ -1,5 +1,5 @@
 # [DML]Dianguang Minecraft Launcher
-# by 二氧化碳已爆炸
+# by 二氧化碳已爆炸|mike20131214
 # 未经允许|禁止商用
 #Minecraft Launcher For Python
 # 导入库
