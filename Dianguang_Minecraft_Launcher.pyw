@@ -4,6 +4,7 @@
 #Minecraft Launcher For Python
 # 导入库
 import tkinter as tk
+from tkinter import messagebox
 import dbm
 import ctypes
 import os
@@ -14,14 +15,23 @@ import os
 # 取字符串后加.decode('utf-8')解码,取数字先用int()转换成字符串再用同样的方式解码
 # 注：因为是dbm库用了反人类的字节串而不是字符串存储数据，所以会出现这种情况
 def playername_ok_button():
-    with dbm.open('playerdata', 'c') as db: 
-        db['playername'] = playername.get().encode('utf-8')
+    try:
+        with dbm.open('playerdata', 'c') as db: 
+            db['playername'] = playername.get().encode('utf-8')
+    except Exception as e:
+        messagebox.showerror("错误", f"保存失败: {str(e)}")
 # [startgame]MC，启动！的调用函数
 def startgame():
+    print('123abc')
     print('you can\'t startgame')
+    messagebox.showinfo("提示", "游戏启动功能尚未实现")
 # [nopoint]千万别点的调用函数
 def nopoint1():
-    os.system('python nopoint.py')
+    print('没做好')
+    try:
+        os.system('python nopoint.py')
+    except Exception as e:
+        messagebox.showerror("错误", f"执行失败: {str(e)}")
 
 # 主程序
 # 设置任务名
