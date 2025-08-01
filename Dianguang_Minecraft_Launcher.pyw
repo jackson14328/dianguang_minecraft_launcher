@@ -33,7 +33,10 @@ def nopoint():
         messagebox.showerror("错误", f"执行失败: {str(e)}")
 # [setting]设置的调用函数
 def setting():
-    messagebox.showinfo("提示", "你给我等mike做好了再用")
+    try:
+        os.system('python setting.py')
+    except Exception as e:
+        messagebox.showerror("错误", f"执行失败: {str(e)}")
 
 # 主程序
 # 设置任务名
