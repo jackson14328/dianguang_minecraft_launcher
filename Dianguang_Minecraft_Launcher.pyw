@@ -18,10 +18,10 @@ def playername_ok_button():
         db['playername'] = playername.get().encode('utf-8')
 # [startgame]MC，启动！的调用函数
 def startgame():
-    print('123abc')
+    print('you can\'t startgame')
 # [nopoint]千万别点的调用函数
 def nopoint1():
-    print('没做好')
+    os.system('python nopoint.py')
 
 # 主程序
 # 设置任务名
@@ -38,23 +38,29 @@ dmltitle = tk.Label(root , text = '''    ____  __  _____
 / / / / /|_/ / /
  / /_/ / /  / / /___
 /_____/_/  /_/_____/''' , font = ('TkDefaultFont' , 20))
-dmltitle.pack(anchor = 'w')
+dmltitle.pack()
+dmltitle.place(x=50, y=25)
 # [steve|playerimage]史蒂夫头像，纯装饰，无作用
 steve = tk.PhotoImage(file='steve.gif')
 playerimage = tk.Label(root , image = steve)
-playerimage.pack(anchor = 'w')
+playerimage.pack()
+playerimage.place(x = 150 , y = 180)
 # [playername_lable|playername]玩家名自定义
-playername_lable = tk.Label(root , text = '请输入玩家名')
-playername_lable.pack(anchor = 'w')
+playername_lable = tk.Label(root , text = '请输入玩家名' , font = ('TkDefaultFont' , 20))
+playername_lable.pack()
+playername_lable.place(x = 100 , y = 250)
 playername = tk.Entry(root)
-playername.pack(anchor = 'w')
+playername.pack()
+playername.place(x = 110 , y = 300)
 # [playername_ok_button]确定玩家名
 playername_ok_button = tk.Button(root , text = 'OK' , command = playername_ok_button)
-playername_ok_button.pack(anchor = 'w')
+playername_ok_button.pack()
+playername_ok_button.place(x = 260 , y = 290)
 # [startplay]MC，启动！
 startgame = tk.Button(root , text = '启动Minecraft' , font = ('TkDefaultFont' , 40) , command = startgame)
 startgame.pack(anchor = 'ne')
 # [nopoint]千万别点
-nopoint = tk.Button(root , text = '千万别点' , command = nopoint1)
+nopoint = tk.Button(root , text = '这真的不是彩蛋' , command = nopoint1)
 nopoint.pack()
+nopoint.place(x = 840 , y = 470)
 root.mainloop()
