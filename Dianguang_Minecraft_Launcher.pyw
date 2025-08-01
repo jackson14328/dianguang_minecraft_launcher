@@ -25,7 +25,7 @@ def nopoint1():
 
 # 主程序
 # 设置任务名
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("2am.dml.0.1")
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("dml.dml.0.1")
 # 主界面
 root = tk.Tk()
 root.title('DML 0.1')
