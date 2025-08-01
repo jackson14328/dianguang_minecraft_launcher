@@ -8,6 +8,7 @@ from tkinter import messagebox
 import dbm
 import ctypes
 import os
+from PIL import Image, ImageTk
 
 # 自定义函数
 # [playername_ok_button]确定玩家名的调用函数
@@ -56,7 +57,10 @@ dmltitle = tk.Label(root , text = '''    ____  __  _____
 dmltitle.pack()
 dmltitle.place(x=50, y=25)
 # [steve|playerimage]史蒂夫头像，纯装饰，无作用
-steve = tk.PhotoImage(file='steve.gif')
+# [origin_img|real_img|steve]转换图片格式
+origin_img = Image.open("steve.gif")
+real_img = origin_img.resize((64, 64))
+steve = ImageTk.PhotoImage(real_img)
 playerimage = tk.Label(root , image = steve)
 playerimage.pack()
 playerimage.place(x = 150 , y = 180)
