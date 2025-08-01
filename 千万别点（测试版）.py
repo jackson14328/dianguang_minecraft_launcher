@@ -1,3 +1,4 @@
+# 你不要把彩蛋放到主代码里啊喂
 import tkinter as tk
 import webbrowser
 import random
