@@ -26,12 +26,14 @@ def startgame():
     print('you can\'t startgame')
     messagebox.showinfo("提示", "游戏启动功能尚未实现")
 # [nopoint]千万别点的调用函数
-def nopoint1():
-    print('没做好')
+def nopoint():
     try:
         os.system('python nopoint.py')
     except Exception as e:
         messagebox.showerror("错误", f"执行失败: {str(e)}")
+# [setting]设置的调用函数
+def setting():
+    messagebox.showinfo("提示", "你给我等mike做好了再用")
 
 # 主程序
 # 设置任务名
@@ -70,7 +72,11 @@ playername_ok_button.place(x = 260 , y = 290)
 startgame = tk.Button(root , text = '启动Minecraft' , font = ('TkDefaultFont' , 40) , command = startgame)
 startgame.pack(anchor = 'ne')
 # [nopoint]千万别点
-nopoint = tk.Button(root , text = '这真的不是彩蛋' , command = nopoint1)
+nopoint = tk.Button(root , text = '这真的不是彩蛋' , command = nopoint)
 nopoint.pack()
 nopoint.place(x = 840 , y = 470)
+# [setting]设置
+setting = tk.Button(root , text = '设置' , command = setting)
+setting.pack()
+setting.place(x = 300 , y = 290)
 root.mainloop()
