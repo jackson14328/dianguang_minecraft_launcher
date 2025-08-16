@@ -178,9 +178,9 @@ def open_wallpaper_settings():
     
     # 壁纸绝对路径（请确保与实际文件位置完全一致）
     wallpaper_paths = {
-        "jojo": r"E:\DML\壁纸\jojo.jpg",
-        "原神": r"E:\DML\壁纸\原神.jpg",
-        "火影": r"E:\DML\壁纸\火影.jpg",
+        "jojo": r"\background_image\jojo.jpg",
+        "原神": r"\background_image\genshin_impact.jpg",
+        "火影": r"\background_image\naruto.jpg",
         "原版": ""
     }
 
