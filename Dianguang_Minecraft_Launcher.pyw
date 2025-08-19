@@ -28,7 +28,9 @@ def pn():
         return db['playername'].decode('utf-8')
 # [startgame]MC，启动！的调用函数
 def startgame():
-    start.gamestart(player_name="player",minecraft_dir=r"E:\DML\minecraft",minecraft_version="1.8.9",JVM="4G",JavaPath=r"C:\Program Files\Java\jre1.8.0_461")
+    with dbm.open('playerdata', 'c') as db: 
+        javalj = db['javalj'].decode('utf-8')
+    start.gamestart(player_name=pn(),minecraft_dir=r"E:\DML\minecraft",minecraft_version="1.8.9",JVM="4G",JavaPath=javalj)
 # [nopoint]千万别点的调用函数
 def nopoint():
     try:

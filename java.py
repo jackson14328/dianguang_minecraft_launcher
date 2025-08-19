@@ -75,10 +75,3 @@ def scan_java_installations_windows() -> List[str]:
         pass
     
     return java_paths
-
-# 使用示例
-if __name__ == "__main__":
-    java_installations = scan_java_installations_windows()
-    print("找到的Java安装路径:")
-    for i, path in enumerate(java_installations, 1):
-        print(f"{i}. {path}")
