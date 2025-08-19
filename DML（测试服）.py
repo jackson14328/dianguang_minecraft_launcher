@@ -9,6 +9,7 @@ import ctypes
 import os
 import random
 from PIL import Image, ImageTk  # 导入Pillow库，务必先安装：pip install pillow
+import start
 
 # 全局变量：存储当前壁纸状态
 current_wallpaper_img = None  # 用于保持 PhotoImage的引用
@@ -22,9 +23,12 @@ def playername_ok_button():
     except Exception as e:
         messagebox.showerror("错误", f"保存失败: {str(e)}")
 
+def pn():
+    with dbm.open('playerdata', 'c') as db: 
+        return db['playername'].decode('utf-8')
 # 自定义函数：启动游戏（占位）
 def startgame():
-    messagebox.showinfo("提示", "游戏启动功能尚未实现")
+    start.gamestart(player_name="player",minecraft_dir=r"E:\DML\minecraft",minecraft_version="1.8.9",JVM="4G",JavaPath=r"C:\Program Files\Java\jre1.8.0_461")
 
 # 自定义函数：彩蛋按钮（占位）
 def nopoint1():
