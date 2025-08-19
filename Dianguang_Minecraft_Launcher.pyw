@@ -29,8 +29,10 @@ def pn():
 # [startgame]MC，启动！的调用函数
 def startgame():
     with dbm.open('playerdata', 'c') as db: 
-        javalj = db['javalj'].decode('utf-8')
-    start.gamestart(player_name=pn(),minecraft_dir=r"E:\DML\minecraft",minecraft_version="1.8.9",JVM="4G",JavaPath=javalj)
+        javalj = db['javalist'].decode('utf-8')
+    with dbm.open('playerdata', 'c') as db: 
+        javalj = db['gamelist'].decode('utf-8')
+    start.gamestart(player_name=pn(),minecraft_dir='E:/dml',minecraft_version="1.8.9",JVM="4G",JavaPath=javalj)
 # [nopoint]千万别点的调用函数
 def nopoint():
     try:
@@ -43,6 +45,8 @@ def setting():
         os.system('python setting.py')
     except Exception as e:
         messagebox.showerror("错误", f"执行失败: {str(e)}")
+def alpha():
+    start.download_minecraft_version(version_name = '1.8.9' , minecraft_dir = r'E:/dml')
 
 # 主程序
 # 设置任务名
@@ -84,11 +88,15 @@ playername_ok_button.place(x = 260 , y = 290)
 startgame = tk.Button(root , text = '启动Minecraft' , font = ('TkDefaultFont' , 40) , command = startgame)
 startgame.pack(anchor = 'ne')
 # [nopoint]千万别点
-nopoint = tk.Button(root , text = '这真的不是彩蛋' , command = nopoint)
+nopoint = tk.Button(root , command = nopoint)
 nopoint.pack()
 nopoint.place(x = 840 , y = 470)
 # [setting]设置
 setting = tk.Button(root , text = '设置' , command = setting)
 setting.pack()
 setting.place(x = 300 , y = 290)
+# 测试
+alpha = tk.Button(root , text = 'alpha' , command = alpha)
+alpha.pack()
+nopoint.place(x = 0 , y = 0)
 root.mainloop()

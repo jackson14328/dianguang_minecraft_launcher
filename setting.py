@@ -6,8 +6,9 @@ import random
 import ctypes
 import java
 import dbm
+import os
 
-javalist = java.scan_java_installations_windows()
+
 def hsd():
     sjs = random.randint(1, 13)
     say = open('say\say' + str(sjs) + '.txt', 'r' , encoding='utf-8')
@@ -17,7 +18,28 @@ def hsd():
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("dml.dml_setting.0.1")
 def javaljok():
     with dbm.open('playerdata', 'c') as db: 
-        db['javalj'] = javalj.get().encode('utf-8')
+        db['javalist'] = javalj.get().encode('utf-8')
+def listt(directory_path):
+    try:
+        # 获取目录下的所有条目
+        entries = os.listdir(directory_path)
+        
+        # 筛选出文件夹
+        folders = [entry for entry in entries 
+                  if os.path.isdir(os.path.join(directory_path, entry))]
+        
+        return folders
+    
+    except FileNotFoundError:
+        return ['error']
+    except PermissionError:
+        return ['error']
+def gamevok():
+    '''with dbm.open('playerdata', 'c') as db: 
+        db['gamev'] = gamev.get().encode('utf-8')'''
+    messagebox.showerror('警告' , '没做好')
+javalist = java.scan_java_installations_windows()
+gamev = listt('')
 # 主界面
 root = tk.Tk()
 root.title('DML setting')
@@ -33,4 +55,10 @@ javalj.pack()
 # 确定
 javaljok = tk.Button(root , text = '确定Java路径' , command = javaljok)
 javaljok.pack()
+# 选择游戏版本
+gamev = ttk.Combobox(root , values = gamev)
+gamev.pack()
+# 确定
+gamevok = tk.Button(root , text = '确定游戏版本' , command = gamevok)
+gamevok.pack()
 root.mainloop()
