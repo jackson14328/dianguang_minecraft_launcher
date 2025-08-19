@@ -9,6 +9,7 @@ import dbm
 import ctypes
 import os
 from PIL import Image, ImageTk
+import start
 
 # 自定义函数
 # [playername_ok_button]确定玩家名的调用函数
@@ -21,11 +22,13 @@ def playername_ok_button():
             db['playername'] = playername.get().encode('utf-8')
     except Exception as e:
         messagebox.showerror("错误", f"保存失败: {str(e)}")
+# 获取用户名
+def pn():
+    with dbm.open('playerdata', 'c') as db: 
+        return db['playername'].decode('utf-8')
 # [startgame]MC，启动！的调用函数
 def startgame():
-    print('123abc')
-    print('you can\'t startgame')
-    messagebox.showinfo("提示", "游戏启动功能尚未实现")
+    start.gamestart(player_name="player",minecraft_dir=r"E:\DML\minecraft",minecraft_version="1.8.9",JVM="4G",JavaPath=r"C:\Program Files\Java\jre1.8.0_461")
 # [nopoint]千万别点的调用函数
 def nopoint():
     try:
@@ -75,7 +78,7 @@ playername.place(x = 110 , y = 300)
 playername_ok_button = tk.Button(root , text = 'OK' , command = playername_ok_button)
 playername_ok_button.pack()
 playername_ok_button.place(x = 260 , y = 290)
-# [startplay]MC，启动！
+# [startgame]MC，启动！
 startgame = tk.Button(root , text = '启动Minecraft' , font = ('TkDefaultFont' , 40) , command = startgame)
 startgame.pack(anchor = 'ne')
 # [nopoint]千万别点
