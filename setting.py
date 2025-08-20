@@ -35,11 +35,15 @@ def listt(directory_path):
     except PermissionError:
         return ['error']
 def gamevok():
-    '''with dbm.open('playerdata', 'c') as db: 
-        db['gamev'] = gamev.get().encode('utf-8')'''
-    messagebox.showerror('警告' , '没做好')
+    with dbm.open('playerdata', 'c') as db: 
+        db['gamev'] = gamev.get().encode('utf-8')
+def gamelistok():
+    with dbm.open('playerdata', 'c') as db: 
+        db['gamelist'] = gamelist.get().encode('utf-8')
 javalist = java.scan_java_installations_windows()
-gamev = listt('')
+with dbm.open('playerdata', 'c') as db: 
+        gamel = db['gamelist'].decode('utf-8')
+gamev = listt(gamel + '/versions')
 # 主界面
 root = tk.Tk()
 root.title('DML setting')
@@ -61,4 +65,10 @@ gamev.pack()
 # 确定
 gamevok = tk.Button(root , text = '确定游戏版本' , command = gamevok)
 gamevok.pack()
+# 选择游戏目录
+gamelist = tk.Entry(root)
+gamelist.pack()
+# 确定
+gamelistok = tk.Button(root , text = '确定游戏目录' , command = gamelistok)
+gamelistok.pack()
 root.mainloop()

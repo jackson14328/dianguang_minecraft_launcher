@@ -22,17 +22,14 @@ def playername_ok_button():
             db['playername'] = playername.get().encode('utf-8')
     except Exception as e:
         messagebox.showerror("错误", f"保存失败: {str(e)}")
-# 获取用户名
-def pn():
-    with dbm.open('playerdata', 'c') as db: 
-        return db['playername'].decode('utf-8')
 # [startgame]MC，启动！的调用函数
 def startgame():
     with dbm.open('playerdata', 'c') as db: 
         javalj = db['javalist'].decode('utf-8')
-    with dbm.open('playerdata', 'c') as db: 
-        javalj = db['gamelist'].decode('utf-8')
-    start.gamestart(player_name=pn(),minecraft_dir='E:/dml',minecraft_version="1.8.9",JVM="4G",JavaPath=javalj)
+        gamelj = db['gamelist'].decode('utf-8')
+        playernamedbm = db['playername'].decode('utf-8')
+        gamev = db['gamev'].decode('utf-8')
+    start.gamestart(player_name=playernamedbm,minecraft_dir=gamelj,minecraft_version=gamev,JVM="4G",JavaPath=javalj)
 # [nopoint]千万别点的调用函数
 def nopoint():
     try:
