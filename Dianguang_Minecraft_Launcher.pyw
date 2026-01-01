@@ -6,10 +6,25 @@
 import tkinter as tk
 from tkinter import messagebox
 import dbm
-import ctypes
 import os
+try:
+    a = dbm['javalist'].decode('utf-8')
+except:
+    messagebox.showerror("提示", f"环境不完整，请求配置完整环境")
+    print('We will downloads [PIL]Python_Imaging_Library')
+    os.system('pip install pillow')
+    print('We will downloads minecraft_launcher_lib')
+    os.system('pip install minecraft_launcher_lib')
+    with dbm.open('playerdata', 'c') as db: 
+        db['playername'] = ''.encode('utf-8')
+        db['gamev'] = ''.encode('utf-8')
+        db['javalist'] = ''.encode('utf-8')
+        db['gamelist'] = ''.encode('utf-8')
+    messagebox.showerror("提示", f"配置环境成功")
+import ctypes
 from PIL import Image, ImageTk
 import start
+
 
 # 自定义函数
 # [playername_ok_button]确定玩家名的调用函数
