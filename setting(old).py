@@ -81,7 +81,7 @@ class EchoCave:
             return
 
         # 加载文本文件
-        for i in range(1, 14):
+        for i in range(1, 15):
             file_name = f"say{i}.txt"
             file_path = os.path.join(folder_path, file_name)
 
