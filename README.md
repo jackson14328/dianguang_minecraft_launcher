@@ -7,5 +7,5 @@
 二氧化碳已爆炸|mike20131214
 
 #### 链接
-Gitee:https://gitee.com/dianguang_minecraft_launcher/dianguang_minecraft_launcher
+Gitee:https://gitee.com/denkou_studio/dianguang_minecraft_launcher
 Github:https://github.com/jackson14328/dianguang_minecraft_launcher
